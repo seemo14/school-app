@@ -4,9 +4,9 @@ import { defineConfig } from 'vite'
 import path from 'node:path'
 
 export default defineConfig({
-  // 👇 important: match https://seemo14.github.io/school-app/
   base: process.env.NODE_ENV === 'production' ? '/school-app/' : '/',
   plugins: [react()],
+})
   resolve: {
     alias: { '@': path.resolve(__dirname, 'src') },
   },
