@@ -1,14 +1,13 @@
+// vite.config.ts
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import path from 'node:path'
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: './',
+  // 👇 important: match https://seemo14.github.io/school-app/
+  base: process.env.NODE_ENV === 'production' ? '/school-app/' : '/',
   plugins: [react()],
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    },
+    alias: { '@': path.resolve(__dirname, 'src') },
   },
 })
