@@ -1,10 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-
-// ✅ This makes React Router work correctly on GitHub Pages
-// ✅ import.meta.env.BASE_URL = "/school-app/" in production (from vite.config.ts)
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
