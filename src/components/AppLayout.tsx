@@ -23,7 +23,8 @@ export default function AppLayout() {
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+
       {/* Top bar */}
       <header className="sticky top-0 z-40 h-14 bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200/70 dark:border-slate-800 flex items-center px-3 gap-2">
         <button
