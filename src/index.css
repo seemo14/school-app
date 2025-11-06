@@ -1,23 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind v4 entry */
+@import "tailwindcss";
 
-:root {
-  color-scheme: light;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Put your global styles here */
+@layer base {
+  /* Example: page background + text color */
+  body {
+    @apply bg-slate-50 text-slate-800;
+  }
 }
 
-body {
-  @apply min-h-screen bg-slate-50 text-slate-900 antialiased transition-colors duration-200 ease-out;
-}
-
-body.dark {
-  @apply bg-slate-950 text-slate-100;
-}
-
-#root {
-  min-height: 100vh;
+/* Your reusable classes */
+@layer components {
+  .card {
+    @apply rounded-2xl shadow-sm p-4 md:p-6 bg-white;
+  }
 }
