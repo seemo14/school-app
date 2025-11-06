@@ -1,15 +1,14 @@
 /* Tailwind v4 entry */
 @import "tailwindcss";
 
-/* Put your global styles here */
+/* Global base styles */
 @layer base {
-  /* Example: page background + text color */
   body {
     @apply bg-slate-50 text-slate-800;
   }
 }
 
-/* Your reusable classes */
+/* Example reusable component style */
 @layer components {
   .card {
     @apply rounded-2xl shadow-sm p-4 md:p-6 bg-white;
