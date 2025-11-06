@@ -2,7 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import AppLayout from "@/components/AppLayout";
 import Dashboard from "@/pages/Dashboard";
 import StudentsPage from "@/pages/StudentsPage";
-
+import AddStudentPage from "@/pages/AddStudentPage";   // 👈 add this
+// import ImportPage from "@/pages/ImportPage";        // keep/remove per your setup
 
 function NotFound() {
   return <div className="p-6">Not found. Try “Dashboard” from the menu.</div>;
@@ -11,17 +12,11 @@ function NotFound() {
 export default function App() {
   return (
     <Routes>
-     
-        {/* default route inside layout */}
+      <Route path="/" element={<AppLayout />}>
         <Route index element={<Dashboard />} />
-
-        {/* pages */}
         <Route path="students" element={<StudentsPage />} />
-        <Route path="students/new" element={<div className="p-6">Add Student (next)</div>} />
-        <Route path="students/:id/edit" element={<div className="p-6">Edit Student (next)</div>} />
-        <Route path="import" element={<ImportPage />} />
-
-        {/* 404 */}
+        <Route path="students/new" element={<AddStudentPage />} /> {/* 👈 replace placeholder */}
+        {/* <Route path="import" element={<ImportPage />} /> */}
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
