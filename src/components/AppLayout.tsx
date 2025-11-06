@@ -1,4 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+// ...
+<NavLink to="/students" className="px-3 py-2 rounded hover:bg-gray-100">Students</NavLink>
 
 export default function AppLayout() {
   return (
