@@ -6,7 +6,7 @@ export default function AppLayout() {
   const [dark, setDark] = useState(false);
   const { pathname } = useLocation();
 
-  // dark mode (optional)
+  // dark mode (persisted)
   useEffect(() => {
     const saved = localStorage.getItem("theme-dark") === "1";
     setDark(saved);
@@ -19,14 +19,13 @@ export default function AppLayout() {
     localStorage.setItem("theme-dark", next ? "1" : "0");
   }
 
-  // close drawer on route change
+  // close drawer when route changes (mobile)
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-
+    <div className="min-h-screen antialiased bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100">
       {/* Top bar */}
-      <header className="sticky top-0 z-40 h-14 bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200/70 dark:border-slate-800 flex items-center px-3 gap-2">
+      <header className="sticky top-0 z-40 h-14 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800 flex items-center px-3 gap-2">
         <button
           className="lg:hidden p-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800"
           onClick={() => setOpen(true)}
@@ -66,7 +65,7 @@ export default function AppLayout() {
           </nav>
         </aside>
 
-        {/* Backdrop for mobile */}
+        {/* Backdrop (mobile) */}
         {open && (
           <button
             className="fixed inset-0 bg-black/30 lg:hidden"
@@ -102,23 +101,16 @@ function SideLink({
       to={to}
       end={end}
       className={({ isActive }) =>
-  [
-    "group flex items-center gap-3 px-3 py-2 rounded-md mb-1 font-medium",
-    isActive
-      ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
-      : "text-slate-800 hover:bg-slate-200 dark:text-slate-200 dark:hover:bg-slate-800",
-  ].join(" ")
-}
-
+        [
+          "group flex items-center gap-3 px-3 py-2 rounded-md mb-1 font-medium",
+          isActive
+            ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
+            : "text-slate-800 hover:bg-slate-200 dark:text-slate-200 dark:hover:bg-slate-800",
+        ].join(" ")
+      }
     >
       <span className="w-5 h-5 shrink-0">{icon}</span>
       <span className="truncate">{children}</span>
-      <span
-        className={[
-          "ml-auto h-5 w-1.5 rounded-full bg-slate-300 opacity-0",
-          "group-[.active]:opacity-100",
-        ].join(" ")}
-      />
     </NavLink>
   );
 }
