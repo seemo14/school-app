@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import AppLayout from "@/components/AppLayout";
 import Dashboard from "@/pages/Dashboard";
 import StudentsPage from "@/pages/StudentsPage";
-import ImportPage from "@/pages/ImportPage"; // remove if you don't have this page
+
 
 function NotFound() {
   return <div className="p-6">Not found. Try “Dashboard” from the menu.</div>;
@@ -11,7 +11,7 @@ function NotFound() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<AppLayout />}>
+     
         {/* default route inside layout */}
         <Route index element={<Dashboard />} />
 
