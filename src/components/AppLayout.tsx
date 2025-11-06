@@ -101,12 +101,14 @@ function SideLink({
       to={to}
       end={end}
       className={({ isActive }) =>
-        [
-          "group flex items-center gap-3 px-3 py-2 rounded-md mb-1",
-          "text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800",
-          isActive && "bg-slate-900 text-white dark:bg-slate-200 dark:text-slate-900",
-        ].join(" ")
-      }
+  [
+    "group flex items-center gap-3 px-3 py-2 rounded-md mb-1 font-medium",
+    isActive
+      ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
+      : "text-slate-800 hover:bg-slate-200 dark:text-slate-200 dark:hover:bg-slate-800",
+  ].join(" ")
+}
+
     >
       <span className="w-5 h-5 shrink-0">{icon}</span>
       <span className="truncate">{children}</span>
